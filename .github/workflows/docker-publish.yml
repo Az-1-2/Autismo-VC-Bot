@@ -70,6 +70,7 @@ jobs:
       - name: Sign the published Docker image
         if: github.event_name != 'pull_request'
         env:
+          COSIGN_EXPERIMENTAL: "1"
           IMAGE: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
           DIGEST: ${{ steps.build-and-push.outputs.digest }}
         run: |
