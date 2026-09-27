@@ -80,7 +80,8 @@ jobs:
           DIGEST: ${{ steps.build-and-push.outputs.digest }}
         run: |
           IMAGE_LOWER=$(echo "${IMAGE}" | tr '[:upper:]' '[:lower:]')
+          echo "Signing: ${IMAGE_LOWER}@${DIGEST}"
           cosign sign \
             --yes \
             --registry-referrers-mode=oci-1-1 \
-            "${IMAGE}@${DIGEST}"
+            "${IMAGE_LOWER}@${DIGEST}"
