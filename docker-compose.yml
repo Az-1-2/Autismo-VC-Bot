@@ -1,0 +1,15 @@
+services:
+  vc-bot:
+    build: .
+    restart: unless-stopped
+    network_mode: bridge
+    container_name: "discord-vc-bot"
+    environment:
+      DISCORD_TOKEN: ""
+      VOICE_CHANNEL_ID: ""
+      CLIENT_ID: ""
+      CUSTOM_EMOJI_ID_GNORP: ""
+      CUSTOM_EMOJI_NAME_GNORP: ""
+      GUILD_ID: ""
+      CUSTOM_EMOJI_NAME_AUTISMO: ""
+      CUSTOM_EMOJI_ID_AUTISMO: ""

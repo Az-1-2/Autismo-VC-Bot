@@ -1,0 +1,4 @@
+discord.py[voice]==2.7.1
+python-dotenv==1.0.1
+PyNaCl==1.5.0
+discord-ios==1.1.1
