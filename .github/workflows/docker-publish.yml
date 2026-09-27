@@ -83,6 +83,7 @@ jobs:
           echo "Signing: ${IMAGE_LOWER}@${DIGEST}"
           cosign sign \
             --yes \
+            --bundle=image.sigstore.json \
             --registry-referrers-mode=oci-1-1 \
             "${IMAGE_LOWER}@${DIGEST}"
 
