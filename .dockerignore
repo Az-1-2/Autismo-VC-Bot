@@ -13,4 +13,4 @@ docker-compose.yml
 *.log
 .pytest_cache/
 .mypy_cache/
-.github
+.github/
