@@ -1,6 +1,6 @@
 services:
   vc-bot:
-    build: .
+    image: ghcr.io/az-1-2/autismo-vc-bot:latest
     restart: unless-stopped
     network_mode: bridge
     container_name: "discord-vc-bot"
