@@ -1,0 +1,16 @@
+.git
+.gitignore
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+docker-compose.yml
+*.log
+.pytest_cache/
+.mypy_cache/
+.github
