@@ -1,16 +1,14 @@
 name: Docker
 
 on:
-  schedule:
-    - cron: "30 6 * * *"
-
   push:
     branches:
-      - "main"
-
-  pull_request:
-    branches:
-      - "main"
+      - main
+    paths:
+      - bot.py
+      - Dockerfile
+      - requirements.txt
+      - .github/workflows/docker-publish.yml
 
   workflow_dispatch:
 
