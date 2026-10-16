@@ -53,13 +53,15 @@ jobs:
         run: |
           echo "name=${REGISTRY}/${GITHUB_REPOSITORY,,}" >> "$GITHUB_OUTPUT"    
 
-      - name: Extract Docker metadata
-        id: meta
-        uses: docker/metadata-action@96383f45573cb7f253c731d3b3ab81c87ef81934 # v5.0.0
-        with:
-          images: ${{ steps.image.outputs.name }}
-          tags: |
-            type=raw,value=latest
+      - name: Select image tag
+        id: tag
+        run: |
+          if [[ "${GITHUB_EVENT_NAME}" == "workflow_dispatch" ]]; then
+            echo "tag=latest" >> "$GITHUB_OUTPUT"
+          else
+            echo "tag=dev" >> "$GITHUB_OUTPUT"
+          fi
+
 
       - name: Build and push Docker image
         id: build-and-push
@@ -68,7 +70,7 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ steps.image.outputs.name }}:${{ steps.tag.outputs.tag }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
