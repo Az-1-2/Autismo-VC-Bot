@@ -1,4 +1,6 @@
-
+> [!NOTE]
+> This bot has not been rewritten for Fluxer yet. It will be when slash commands are implemented into Fluxer and when Fluxer.py has updated to support them
+>
 
 # Autismo-VC-Bot
 A Fluxer (formerly Discord) bot that sits in voice chat and has some basic slash commands using Fluxer.py. It is now a Fluxer bot as I now use Fluxer and have fully quit Discord, and want to also take this bot with me. It was used mainly in the r/autism Discord but is now used in a private server. It can be selfhosted and used in other servers too. Open source cuz why not.
